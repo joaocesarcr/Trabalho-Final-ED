@@ -3,10 +3,30 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[ ]) {
-  int cont;
+    if (argumentsError(argc)) return 0;
+
+    char s; // auxilia na impressao dos arquivos
+
+    FILE *input1, *input2, *OUTPUT;
+
+    input1 = fopen(argv[1],"r");
+    input2 = fopen(argv[2],"r");
+
+   if (filesError(input1,input2)) return 0;
+
+
+  // Printa o que estiver no inputN 
+    while ((s = getc(input2)) != EOF) {
+        putc(s, stdout);
+    }
+
+
+    /* Teste os parametros recebidos
+    int cont;
+    for (cont = 0; cont < argc; cont++) {
+        printf("\n%d Parametro: %s\n", cont,argv[cont]);
+    }
+    */
   
-  for(cont=0; cont < argc; cont++)
-    printf("%d Parametro: %s\n", cont,argv[cont]);
-  
-  return 0;
+    return 0;
 }
