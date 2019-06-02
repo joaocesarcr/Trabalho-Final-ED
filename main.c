@@ -5,8 +5,6 @@
 int main(int argc, char *argv[ ]) {
     if (argumentsError(argc)) return 0;
 
-    char s; // auxilia na impressao dos arquivos
-
     FILE *input1, *input2, *OUTPUT;
 
     input1 = fopen(argv[1],"r");
@@ -16,6 +14,7 @@ int main(int argc, char *argv[ ]) {
 
 
   // Printa o que estiver no inputN 
+    char s; // auxilia na impressao dos arquivos
     while ((s = getc(input2)) != EOF) {
         putc(s, stdout);
     }
