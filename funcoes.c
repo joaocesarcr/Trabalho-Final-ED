@@ -52,48 +52,42 @@ void exFile2 (FILE *input2) {
 }
 
 argumentsOP readLine (FILE *input2) {
+    // Recebe um arquivo
+    // Retorna a operacao a ser realizada e a entrada dela em formato da struct arguments
+    // Falta inicializar arguments como NULO.
+    
     argumentsOP arguments;
     char letter;
     int number;
     int counter = 0;
-    argumentsOP readLine (FILE *input2) {
-        argumentsOP arguments;
-        char letter;
-        int number;
-        int count = 0;
+    arguments.opChar = getc(input2); // char comando
+    getc(input2); // esquece o ; após o char que indica a operacao
 
-        arguments.opChar = getc(input2); // char comando;
-        getc(input2); // esquece o ; após o char que indica a operacao
-
-        if (arguments.opChar == 'g') { // Caso especial = operação G recebe uma hashtag (string)
-            while ((letter = getc(input2)) != '\n') {
-                arguments.name[count] = letter;
-            }
-
+    if (arguments.opChar == 'g') { // Caso especial = operação G recebe uma hashtag (string)
+        while ((letter = getc(input2)) != '\n') 
+            arguments.name[count] = letter;
         }
 
-        else {
-            arguments.n = getw(input2);
-            printf("\nTESTE d: \n%d = arguments.n\n", arguments.n);
-            printf("TESTE c: \n%c = arguments.n\n\n", arguments.n);
-        }
-
-        return arguments;
-       
     }
+
+    else {
+        arguments.n = getw(input2);
+        printf("\nTESTE d: \n%d = arguments.n\n", arguments.n);
+        printf("TESTE c: \n%c = arguments.n\n\n", arguments.n)
+    }
+
+    return arguments;
+}
+
 /* Por alguma razão mesmo com "atoi" ou getw a variável está sendo imprimida corretamente apenas com
  * o %c ao invés de %d 
  */
 
 
 
-    return arguments;
-}
-
-
-
 
 /*
+Esboco para tirar os acentos das letras 'A'e  'E'. Para maiuscula/minuscula já existe a funcao em alguma biblioteca
 void 
     for(int i=0; i < strlen(myString); i++)
     {
