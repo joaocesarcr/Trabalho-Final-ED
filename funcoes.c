@@ -27,24 +27,31 @@ void exFile2 (FILE *input2) {
 
         switch (arguments.opChar) {
             case 'a':
+                
                 break;
 
             case 'b':
+
                 break;
 
             case 'c':
+
                 break;
                 
             case 'd':
+
                 break;
 
             case 'e':
+
                 break;
 
             case 'f':
+
                 break;
 
             case 'g':
+
                 break;
                 
         }
@@ -52,31 +59,31 @@ void exFile2 (FILE *input2) {
 }
 
 argumentsOP readLine (FILE *input2) {
-    // Recebe um arquivo
-    // Retorna a operacao a ser realizada e a entrada dela em formato da struct arguments
-    // Falta inicializar arguments como NULO.
-    
     argumentsOP arguments;
     char letter;
     int number;
+    int aux;
     int counter = 0;
-    arguments.opChar = getc(input2); // char comando
+    arguments.opChar = getc(input2); // char comando;
     getc(input2); // esquece o ; após o char que indica a operacao
 
     if (arguments.opChar == 'g') { // Caso especial = operação G recebe uma hashtag (string)
-        while ((letter = getc(input2)) != '\n') 
-            arguments.name[count] = letter;
+        while ((letter = getc(input2)) != '\n') {
+            arguments.name[counter] = letter;
         }
 
     }
 
     else {
-        arguments.n = getw(input2);
-        printf("\nTESTE d: \n%d = arguments.n\n", arguments.n);
-        printf("TESTE c: \n%c = arguments.n\n\n", arguments.n)
+        number = getc(input2);
+        aux  = number;
+//        arguments.n = getw(input2);
+        arguments.n = atoi(aux);
+        printf("\nd: %d = arguments.n\nc: %c = arguments.n", arguments.n,arguments.n);
     }
 
     return arguments;
+   
 }
 
 /* Por alguma razão mesmo com "atoi" ou getw a variável está sendo imprimida corretamente apenas com
@@ -85,9 +92,8 @@ argumentsOP readLine (FILE *input2) {
 
 
 
-
 /*
-Esboco para tirar os acentos das letras 'A'e  'E'. Para maiuscula/minuscula já existe a funcao em alguma biblioteca
+ *
 void 
     for(int i=0; i < strlen(myString); i++)
     {
@@ -113,6 +119,9 @@ A saída da função é uma lista em ordem decrescente das hastags mais citadas.
 Restrições: 
     (i) listar um resultado por linha; 
     (ii) hashtags com a mesma frequência devem ser listadas em ordem alfabética.
+
+Arvore binaria de pesquisa ordem lexografica 
+
 */
 void opA(int qttHash, int qttCit) {
     
@@ -124,6 +133,8 @@ Listar os usuários que mais postam tweets.
 A operação recebe como entrada um número que indica quantos usuários devem ser listados. 
 Se o número for zero, todos os usuários devem ser listados. 
 A saída da função é uma lista em ordem decrescente de usuários mais ativos e o número de postagens. Restrições: (i) listar um resultado por linha.
+
+Arvore binaria de pesquisa ordem lexografica 
 */
 void opB(int userQtt) {
 }
@@ -135,7 +146,9 @@ Listar os tweets com maior número de retweets.
 A operação recebe como entrada um número que indica quantos tweets devem ser listados. 
 Se o número for zero, todos os tweets devem ser listados. A saída da função é uma lista em ordem decrescente de tweets mais “retuitados” e o número de retweets. Restrições: (i) listar um resultado por linha; (ii) tweets com a mesma frequência devem ser listados em ordem alfabética.
 */
+
 void opC(int tweetsQtt) {
+
 }
 
 /*
@@ -149,6 +162,7 @@ Restrições:
     (ii) usuários com a mesma frequência devem ser listados em ordem alfabética.
 */
 void opD(int usrQtt) {
+
 }
 
 /*
@@ -162,7 +176,9 @@ Restrições:
     (ii) usuários com a mesma frequência devem ser listados em ordem alfabética.
 */
 void opE(int userQtt) {
+
 }
+
 
 /*
 OPERAÇÃO f.
@@ -174,7 +190,9 @@ Restrições:
     (i) listar um resultado por linha;
     (ii) usuários com a mesma frequência devem ser listados em ordem alfabética.
 */
+
 void opF(int userQtt) {
+
 }
 
 /*
